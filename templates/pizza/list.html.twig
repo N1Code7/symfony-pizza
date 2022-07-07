@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Pizza ! - Liste des pizzas{% endblock %}
+
+{% block body %}
+
+<h1>Liste des pizzas</h1>
+
+  <div class="cards-container">
+
+    {% for pizza in pizzas %}
+      <div class="card">
+        <h3>{{pizza.getName()}}</h3>
+        <p>{{pizza.getDescription()}}</p>
+        <p>{{pizza.getPrice()}} €</p>
+        <img src="{{pizza.getImageUrl()}}" alt="photo de la {{pizza.getName()}}">
+      </div>
+      
+    {% endfor %}
+
+  </div>
+
+{% endblock %}
