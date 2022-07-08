@@ -1,0 +1,43 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  user-select: none;
+
+  &-submit {
+    color: rgb(235, 234, 234);
+    background: $color-submit;
+    box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
+    transition: 0.3s;
+
+    &:active {
+      box-shadow: none;
+      transform: translate(0, 3px);
+    }
+  }
+
+  &-add {
+    color: rgb(235, 234, 234);
+    background: $color-third;
+    box-shadow: -6px 6px 0 0 rgb(71, 63, 9);
+    transition: 0.3s;
+    text-decoration: none;
+    max-width: 250px;
+
+    &:active {
+      box-shadow: none;
+      transform: translate(0, 3px);
+    }
+  }
+}

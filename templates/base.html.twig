@@ -11,7 +11,19 @@
     </head>
 
     <body>
-        {% block body %}{% endblock %}
+
+        <header>
+            {% block header %}{% endblock %}
+        </header>
+
+        <main>
+            <div class="main-content">
+                {% block main_content %}{% endblock %}
+            </div>
+        </main>
+
+        {% block footer %}{% endblock %}
+
         {% block javascripts %}
             <script src="/index.js"></script>
         {% endblock %}

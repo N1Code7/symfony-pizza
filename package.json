@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "sass": "sass --watch ./sass/index.scss:/public/style.css"
+    "sass": "sass --watch ./sass/index.scss:./public/style.css"
   },
   "keywords": [],
   "author": "",

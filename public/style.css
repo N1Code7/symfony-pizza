@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Rubik+Moonrocks&display=swap");
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+  outline: none;
+}
+
+html {
+  background: rgb(197, 195, 195);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 15vh;
+}
+header h1 {
+  font-family: "Rubik Moonrocks", sans-serif;
+  font-size: 5rem;
+  color: rgb(135, 11, 11);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+main .main-content {
+  max-width: 50vw;
+  min-width: 50vw;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 500px;
+  backdrop-filter: blur(20px);
+}
+form *::placeholder {
+  font-family: "Rubik Moonrocks", sans-serif;
+}
+form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 60%;
+  padding: 0.6rem 0;
+}
+form .form-group label {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+form .form-group input,
+form .form-group textarea {
+  min-width: 100%;
+  font-size: 1.2rem;
+  transition: border-radius 0.5s ease-out;
+  border: 2px inset rgb(10, 117, 10);
+}
+form .form-group input:focus,
+form .form-group textarea:focus {
+  border-radius: 30px;
+}
+form .form-group input {
+  min-height: 40px;
+  text-align: center;
+}
+form .form-group textarea {
+  padding: 1.2rem;
+  resize: vertical;
+  min-height: 120px;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cards-container .card {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: "a d" "b d" "c d";
+  padding: 1.2rem;
+  margin: 1.2rem;
+  border: 2px inset rgb(10, 117, 10);
+}
+.cards-container .card h3 {
+  grid-area: a;
+}
+.cards-container .card p:nth-child(1) {
+  grid-area: b;
+}
+.cards-container .card p:nth-child(2) {
+  grid-area: c;
+}
+.cards-container .card img {
+  grid-area: d;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.2rem 0;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  user-select: none;
+}
+.btn-submit {
+  color: rgb(235, 234, 234);
+  background: rgb(10, 117, 10);
+  box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
+  transition: 0.3s;
+}
+.btn-submit:active {
+  box-shadow: none;
+  transform: translate(0, 3px);
+}
+.btn-add {
+  color: rgb(235, 234, 234);
+  background: rgb(170, 147, 20);
+  box-shadow: -6px 6px 0 0 rgb(71, 63, 9);
+  transition: 0.3s;
+  text-decoration: none;
+  max-width: 250px;
+}
+.btn-add:active {
+  box-shadow: none;
+  transform: translate(0, 3px);
+}
+
+/*# sourceMappingURL=style.css.map */

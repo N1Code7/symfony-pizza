@@ -12,21 +12,21 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route("/pizza")]
 class PizzaController extends AbstractController
 {
-    #[Route('/list', name: 'app_pizza_list')]
+    #[Route('/list', name: 'app_pizza_displayAllPizza')]
     public function displayAllPizza(PizzaRepository $repository): Response
     {
         $pizzas = $repository->findAll();
 
-        return $this->render("/pizza/list.html.twig", [
+        return $this->render("/pizza/displayAllPizza.html.twig", [
             "pizzas" => $pizzas
         ]);
     }
 
-    #[Route("/new", name: "app_pizza_new")]
+    #[Route("/new", name: "app_pizza_createPizza")]
     public function createPizza(Request $request, PizzaRepository $repository): Response
     {
         if (!$request->isMethod("POST")) {
-            return $this->render("pizza/new.html.twig");
+            return $this->render("pizza/createPizza.html.twig");
         }
 
         $name = $request->request->get("name");
@@ -42,7 +42,7 @@ class PizzaController extends AbstractController
 
         $repository->add($pizza, true);
 
-        return $this->redirectToRoute("app_pizza_list");
+        return $this->redirectToRoute("app_pizza_displayAllPizza");
 
         // return new Response("La pizza possédant l'ID n° {$pizza->getId()} a bien été enregistrée.");
     }

@@ -1,0 +1,113 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 15vh;
+
+  h1 {
+    font-family: $font2;
+    font-size: 5rem;
+    color: $color-title;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+
+  .main-content {
+    max-width: 50vw;
+    min-width: 50vw;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 500px;
+  backdrop-filter: blur(20px);
+
+  *::placeholder {
+    font-family: $font2;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 60%;
+    padding: 0.6rem 0;
+
+    label {
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+
+    input,
+    textarea {
+      min-width: 100%;
+      font-size: 1.2rem;
+      transition: border-radius 0.5s ease-out;
+      border: 2px inset $color-submit;
+
+      &:focus {
+        border-radius: 30px;
+      }
+    }
+
+    input {
+      min-height: 40px;
+      text-align: center;
+    }
+
+    textarea {
+      padding: 1.2rem;
+      resize: vertical;
+      min-height: 120px;
+    }
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .card {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "a d"
+      "b d"
+      "c d";
+    padding: 1.2rem;
+    margin: 1.2rem;
+    border: 2px inset $color-submit;
+
+    h3 {
+      grid-area: a;
+    }
+
+    p:nth-child(1) {
+      grid-area: b;
+    }
+
+    p:nth-child(2) {
+      grid-area: c;
+    }
+
+    img {
+      grid-area: d;
+    }
+  }
+}

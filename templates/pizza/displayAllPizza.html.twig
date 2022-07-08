@@ -2,9 +2,11 @@
 
 {% block title %}Hello Pizza ! - Liste des pizzas{% endblock %}
 
-{% block body %}
+{% block header %}
+  <h1>Liste des pizzas</h1>
+{% endblock %}
 
-<h1>Liste des pizzas</h1>
+{% block main_content %}
 
   <div class="cards-container">
 
@@ -17,6 +19,10 @@
       </div>
       
     {% endfor %}
+
+    <div class="button-container">
+        <a href={{path("app_pizza_createPizza")}} class="btn btn-add">Ajouter une nouvelle pizza</a>
+    </div>
 
   </div>
 
