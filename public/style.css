@@ -91,24 +91,42 @@ form .form-group textarea {
 }
 .cards-container .card {
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-template-areas: "a d" "b d" "c d";
+  grid-template-areas: "a e" "b e" "c e" "d f";
   padding: 1.2rem;
   margin: 1.2rem;
   border: 2px inset rgb(10, 117, 10);
 }
 .cards-container .card h3 {
   grid-area: a;
+  padding: 0.6rem;
 }
-.cards-container .card p:nth-child(1) {
+.cards-container .card p:nth-of-type(1) {
   grid-area: b;
+  padding: 0.6rem;
 }
-.cards-container .card p:nth-child(2) {
+.cards-container .card p:nth-of-type(2) {
   grid-area: c;
+  padding: 0.6rem;
+}
+.cards-container .card button:nth-child(1) {
+  grid-area: d;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cards-container .card button:nth-child(2) {
+  grid-area: f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem;
 }
 .cards-container .card img {
-  grid-area: d;
+  grid-area: e;
+  padding: 0.6rem;
 }
 
 .button-container {
@@ -127,28 +145,49 @@ form .form-group textarea {
   border-radius: 50px;
   font-weight: 600;
   user-select: none;
+  transition: 0.3s;
+}
+.btn:active {
+  box-shadow: none;
+  transform: translate(0, 3px);
 }
 .btn-submit {
   color: rgb(235, 234, 234);
   background: rgb(10, 117, 10);
   box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
-  transition: 0.3s;
+  animation: buttonLoad 2s;
+  text-decoration: none;
 }
-.btn-submit:active {
-  box-shadow: none;
-  transform: translate(0, 3px);
+@keyframes buttonLoad {
+  0% {
+    transform: translate(0, 3px);
+    box-shadow: none;
+  }
+  100% {
+    box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
+    transform: translate(0, 0);
+  }
 }
 .btn-add {
   color: rgb(235, 234, 234);
-  background: rgb(170, 147, 20);
-  box-shadow: -6px 6px 0 0 rgb(71, 63, 9);
-  transition: 0.3s;
+  background: rgb(10, 117, 10);
+  box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
   text-decoration: none;
   max-width: 250px;
 }
-.btn-add:active {
-  box-shadow: none;
-  transform: translate(0, 3px);
+.btn-modify {
+  color: rgb(235, 234, 234);
+  background: rgb(170, 147, 20);
+  box-shadow: -6px 6px 0 0 rgb(71, 63, 9);
+  text-decoration: none;
+  max-width: 90px;
+}
+.btn-delete {
+  color: rgb(235, 234, 234);
+  background: rgb(135, 11, 11);
+  box-shadow: -6px 6px 0 0 rgb(71, 9, 9);
+  text-decoration: none;
+  max-width: 120px;
 }
 
 /*# sourceMappingURL=style.css.map */

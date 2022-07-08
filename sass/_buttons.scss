@@ -14,30 +14,52 @@
   border-radius: 50px;
   font-weight: 600;
   user-select: none;
+  transition: 0.3s;
+
+  &:active {
+    box-shadow: none;
+    transform: translate(0, 3px);
+  }
 
   &-submit {
-    color: rgb(235, 234, 234);
+    color: $color-second;
     background: $color-submit;
     box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
-    transition: 0.3s;
-
-    &:active {
-      box-shadow: none;
+    animation: buttonLoad 2s;
+    text-decoration: none;
+  }
+  @keyframes buttonLoad {
+    0% {
       transform: translate(0, 3px);
+      box-shadow: none;
+    }
+    100% {
+      box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
+      transform: translate(0, 0);
     }
   }
 
   &-add {
-    color: rgb(235, 234, 234);
-    background: $color-third;
-    box-shadow: -6px 6px 0 0 rgb(71, 63, 9);
-    transition: 0.3s;
+    color: $color-second;
+    background: $color-submit;
+    box-shadow: -6px 6px 0 0 rgb(7, 53, 7);
     text-decoration: none;
     max-width: 250px;
+  }
 
-    &:active {
-      box-shadow: none;
-      transform: translate(0, 3px);
-    }
+  &-modify {
+    color: $color-second;
+    background: $color-third;
+    box-shadow: -6px 6px 0 0 rgb(71, 63, 9);
+    text-decoration: none;
+    max-width: 90px;
+  }
+
+  &-delete {
+    color: $color-second;
+    background: $color-title;
+    box-shadow: -6px 6px 0 0 rgb(71, 9, 9);
+    text-decoration: none;
+    max-width: 120px;
   }
 }

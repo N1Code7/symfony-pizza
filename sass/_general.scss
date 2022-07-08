@@ -84,30 +84,51 @@ form {
 
   .card {
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
-      "a d"
-      "b d"
-      "c d";
+      "a e"
+      "b e"
+      "c e"
+      "d f";
     padding: 1.2rem;
     margin: 1.2rem;
     border: 2px inset $color-submit;
 
     h3 {
       grid-area: a;
+      padding: 0.6rem;
     }
 
-    p:nth-child(1) {
+    p:nth-of-type(1) {
       grid-area: b;
+      padding: 0.6rem;
     }
 
-    p:nth-child(2) {
+    p:nth-of-type(2) {
       grid-area: c;
+      padding: 0.6rem;
+    }
+
+    button:nth-child(1) {
+      grid-area: d;
+      padding: 0.6rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    button:nth-child(2) {
+      grid-area: f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.6rem;
     }
 
     img {
-      grid-area: d;
+      grid-area: e;
+      padding: 0.6rem;
     }
   }
 }

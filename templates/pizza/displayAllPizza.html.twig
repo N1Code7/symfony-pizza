@@ -12,16 +12,19 @@
 
     {% for pizza in pizzas %}
       <div class="card">
-        <h3>{{pizza.getName()}}</h3>
-        <p>{{pizza.getDescription()}}</p>
-        <p>{{pizza.getPrice()}} €</p>
-        <img src="{{pizza.getImageUrl()}}" alt="photo de la {{pizza.getName()}}">
+        <h3>{{pizza.name()}}</h3>
+        <p>{{pizza.description()}}</p>
+        <p>{{pizza.price()}} €</p>
+        <img src="{{pizza.imageUrl()}}" alt="photo de la {{pizza.name()}}">
+        
+        <a href= {{ path("app_pizza_updatePizza", {"id": pizza.id})}} class="btn btn-modify">Modifier</a>
+        <a href={{path("app_pizza_removePizza", {"id": pizza.id})}} class="btn btn-delete">Supprimer</a>
       </div>
       
     {% endfor %}
 
     <div class="button-container">
-        <a href={{path("app_pizza_createPizza")}} class="btn btn-add">Ajouter une nouvelle pizza</a>
+        <a href={{path("app_pizza_createPizza")}} class="btn btn-submit">Ajouter une nouvelle pizza</a>
     </div>
 
   </div>

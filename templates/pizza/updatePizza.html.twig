@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Hello Pizza ! - Modifier Pizza{% endblock %}
+
+{% block header %}
+  <h1>Modifier la pizza {{pizza.getName()}}</h1>
+{% endblock %}
+
+{% block main_content %}
+
+
+  <form method="POST">
+  
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input type="text" name="name" id="name" placeholder="ex : Margarita" value="{{pizza.getName()}}">
+    </div>
+    <div class="form-group">
+      <label for="desc">Description</label>
+      <textarea name="desc" id="desc" rows="10" placeholder="Description ...">{{pizza.getDescription()}}</textarea>
+      
+    </div>
+    <div class="form-group">
+      <label for="price">Prix</label>
+      <input type="number" step="0.01" name="price" placeholder="XX,XX €" id="price" value="{{pizza.getPrice()}}">
+    </div>
+    <div class="form-group">
+      <label for="imageUrl">Lien de l'image</label>
+      <input type="url" name="imageUrl" id="imageUrl" value="{{pizza.getImageUrl()}}">
+    </div>
+    <div class="button-container">
+        <button class="btn btn-submit" type="submit">Mettre à jour</button>
+    </div>
+  
+  </form>
+
+{% endblock %}

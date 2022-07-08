@@ -45,5 +45,44 @@ class PizzaController extends AbstractController
         return $this->redirectToRoute("app_pizza_displayAllPizza");
 
         // return new Response("La pizza possédant l'ID n° {$pizza->getId()} a bien été enregistrée.");
+
+    }
+
+    #[Route("/{id}/modify", name: "app_pizza_updatePizza")]
+    public function updatePizza(Request $request, PizzaRepository $repository, int $id): Response
+    {
+        $pizza = $repository->find($id);
+
+        if ($request->isMethod("POST")) {
+
+            $name = $request->request->get("name");
+            $desc = $request->request->get("desc");
+            $price = (float)$request->request->get("price");
+            $imageUrl = $request->request->get("imageUrl");
+
+            $pizza->setName($name);
+            $pizza->setDescription($desc);
+            $pizza->setPrice($price);
+            $pizza->setImageUrl($imageUrl);
+
+            $repository->add($pizza, true);
+
+            return $this->redirectToRoute("app_pizza_displayAllPizza");
+        }
+
+        return $this->render("pizza/updatePizza.html.twig", [
+            "id" => $id,
+            "pizza" => $pizza
+        ]);
+    }
+
+    #[Route("/{id}/remove", name: "app_pizza_removePizza")]
+    public function removePizza(PizzaRepository $repository, int $id): Response
+    {
+        $pizza = $repository->find($id);
+
+        $repository->remove($pizza, true);
+
+        return $this->redirectToRoute("app_pizza_displayAllPizza");
     }
 }
